@@ -19,8 +19,15 @@ const Main = () => {
   // Function to handle adding an activty
   const addToDo = () => {
     setToDos(prevToDos => {
-      prevToDos.push({todo: activity, id: prevToDos[prevToDos.length - 1].id + 1})
+      if (activity !== "") {
+        return [...prevToDos, {todo: activity, id: prevToDos[prevToDos.length - 1].id + 1}];
+      }
     });
+
+    setActivity(prevActivity => {
+      return (prevActivity = '');
+    });
+    console.log(activity);
   }
 
   // Function to handle deleting an activty
@@ -31,7 +38,7 @@ const Main = () => {
         }));
     });
   }
-  console.log(toDos.length);
+  
   // Variable containing to-do list
   const todoList = toDos.map(toDo => {
     return (
@@ -39,8 +46,8 @@ const Main = () => {
         <li key={Math.random()}>{toDo.todo}</li>
         <button key={Math.random()} className="del-btn" onClick={() => deleteToDo(toDo.id)}>-</button>
       </div>
-    );
-  });
+    )}
+  );
 
   return (
     <main className="main">
