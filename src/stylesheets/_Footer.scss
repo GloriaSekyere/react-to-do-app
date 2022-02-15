@@ -1,0 +1,30 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: $very-dark-cyan;
+  color: $strong-cyan;
+  width: 100%;
+  padding: 25px 0;
+  display: grid;
+  place-content: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: space-around;
+  width: 125px;
+}
+
+.social-link {
+  display: grid;
+  place-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid $strong-cyan;
+  border-radius: 50%;
+  
+  svg {
+    fill: $strong-cyan;
+  }
+}

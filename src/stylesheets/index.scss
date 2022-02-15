@@ -1,0 +1,16 @@
+@import "variables";
+@import "Header";
+@import "Main";
+@import "Footer";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: $very-light-grayish-cyan;
+  padding: 25px;
+}
