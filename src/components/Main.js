@@ -1,7 +1,8 @@
 import { useState } from "react";
+import InputSection from "./InputSection";
 
 const Main = () => {
-
+  //const [isEmpty, setIsEmpty] = useState(true)
   const [activity, setActivity] = useState('');
 
   const [toDos, setToDos] = useState([
@@ -11,25 +12,16 @@ const Main = () => {
     {todo: "Fix bugs in code", id: 4},
   ]);
 
-  // Function to handle input changes
-  const newToDo = (e) => {
-    setActivity(e.target.value);
-  }
-
-  // Function to handle adding an activty
-  const addToDo = () => {
-    setToDos(prevToDos => {
-      if (activity !== "") {
-        return [...prevToDos, {todo: activity, id: prevToDos[prevToDos.length - 1].id + 1}];
-      }
-    });
-
-    setActivity(prevActivity => {
-      return (prevActivity = '');
-    });
-    console.log(activity);
-  }
-
+  // Variable containing to-do list
+  const todoList = toDos.map(toDo => {
+    return (
+      <div key={Math.random()} className="single-todo">
+        <li>{toDo.todo}</li>
+        <button className="del-btn" onClick={() => deleteToDo(toDo.id)}>-</button>
+      </div>
+    )}
+  );
+  
   // Function to handle deleting an activty
   const deleteToDo = (id) => {
     setToDos(prevToDos => {
@@ -39,22 +31,14 @@ const Main = () => {
     });
   }
   
-  // Variable containing to-do list
-  const todoList = toDos.map(toDo => {
-    return (
-      <div key={Math.random()} className="single-todo">
-        <li key={Math.random()}>{toDo.todo}</li>
-        <button key={Math.random()} className="del-btn" onClick={() => deleteToDo(toDo.id)}>-</button>
-      </div>
-    )}
-  );
-
   return (
     <main className="main">
-      <div className="input-section">
-        <input id="input-field" type="text" placeholder="Enter activity..." onChange={(e) => newToDo(e)}/>
-        <button className="add-btn" onClick={addToDo}>+</button>
-      </div>
+      <InputSection 
+        toDos={toDos}
+        setToDos={setToDos}
+        activity={activity}
+        setActivity={setActivity}
+      />
 
       <div className="todos">
         {todoList}
