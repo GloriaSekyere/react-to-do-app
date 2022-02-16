@@ -33,7 +33,6 @@ const InputSection = ({ activity, setActivity, toDos, setToDos }) => {
       }
       
       setActivity(''); // reset activity
-      document.getElementById("input-field").value = ''; // clear input field
     }
   }
 
@@ -43,6 +42,7 @@ const InputSection = ({ activity, setActivity, toDos, setToDos }) => {
         id="input-field" 
         type="text" 
         placeholder="Enter activity..." 
+        value={activity}
         onChange={(e) => typingToDo(e)}
       />
       {isEmpty ? 
@@ -54,4 +54,3 @@ const InputSection = ({ activity, setActivity, toDos, setToDos }) => {
 }
 
 export default InputSection
-
