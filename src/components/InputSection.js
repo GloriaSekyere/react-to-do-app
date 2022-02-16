@@ -10,8 +10,8 @@ const InputSection = ({ activity, setActivity, toDos, setToDos }) => {
   const typingToDo = (e) => {
     setActivity(e.target.value)
 
-    // this code needs work with useRef, will be modified later 
-    if (document.getElementById("input-field").value !== '') {
+    // this feature needs more work, will be modified later with useRef
+    if (e.target.value !== '') {
       setIsEmpty(false)
     }
     else {
@@ -39,7 +39,12 @@ const InputSection = ({ activity, setActivity, toDos, setToDos }) => {
 
   return (
     <div className="input-section">
-      <input id="input-field" type="text" placeholder="Enter activity..." onChange={(e) => typingToDo(e)}/>
+      <input 
+        id="input-field" 
+        type="text" 
+        placeholder="Enter activity..." 
+        onChange={(e) => typingToDo(e)}
+      />
       {isEmpty ? 
         (<button className="add-btn" onClick={addToDo} disabled>+</button>) : 
         (<button className="add-btn" onClick={addToDo}>+</button>)
