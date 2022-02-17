@@ -1,55 +1,47 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const InputSection = ({ activity, setActivity, toDos, setToDos }) => {
-  const [isEmpty, setIsEmpty] = useState(true)
+const InputSection = ({ toDos, setToDos }) => {
+  const [isEmpty, setIsEmpty] = useState(false)
+  const [activity, setActivity] = useState('')
 
+  // Function to toggle button enabled or disabled state
+  useEffect(() => {
+   activity ? setIsEmpty(false) : setIsEmpty(true)
+  }, [activity])
   
-  
-  // Function to handle input changes
-  const typingToDo = (e) => {
-    setActivity(e.target.value)
-
-    // this feature needs more work, will be modified later with useRef
-    if (e.target.value !== '') {
-      setIsEmpty(false)
-    }
-    else {
-      setIsEmpty(true)
-    }
-  }
-
   // Function to handle adding an activty
   const addToDo = () => {
-    if (activity !== '') {
-      // add new todo to the existing todos or empty list
-      if (toDos.length !== 0) {
-        setToDos(prevToDos => {
-          return [...prevToDos, {todo: activity, id: prevToDos[prevToDos.length - 1].id + 1}];
-        })
-      } 
-      else {
-        setToDos( [{todo: activity, id: 1}] )
-      }
-      
-      setActivity(''); // reset activity
+    let newToDo = { //create new to-do object
+      todo: activity, 
+      id: Math.floor(Math.random() * 10000)
     }
+    setToDos(prevToDos => { //add new to-do object to to-do list
+      return [...prevToDos, newToDo ]
+    })
+  }
+
+  // Function to handle adding a new to-do
+  const handleSubmit = (e) => {
+    e.preventDefault() //prevent form from submitting
+    addToDo() //add new to-do to to-do list 
+    setActivity('') //clear input field after adding new to-do
   }
 
   return (
-    <div className="input-section">
+    <form className="input-section" onSubmit={e => handleSubmit(e)}>
       <input 
         id="input-field" 
         type="text" 
         placeholder="Enter activity..." 
         value={activity}
-        onChange={(e) => typingToDo(e)}
+        onChange={e => setActivity(e.target.value)}
       />
       {isEmpty ? 
-        (<button className="add-btn" onClick={addToDo} disabled>+</button>) : 
-        (<button className="add-btn" onClick={addToDo}>+</button>)
+        (<button className="add-btn" disabled>+</button>) : 
+        (<button className="add-btn">+</button>)
       }
-    </div>
+    </form>
   )
 }
 
