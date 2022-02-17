@@ -29,6 +29,6 @@ export const useFetch = (url) => {
 
     fetchData(url)
   }, [url])
-  console.log(data)
+  
   return {data, setData, isPending, error}
 }

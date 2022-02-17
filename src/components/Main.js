@@ -14,7 +14,7 @@ const Main = () => {
 
       <ToDoList
         toDos={toDos}
-        setData={setToDos}
+        setToDos={setToDos}
       />
     </main>
   );
