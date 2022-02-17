@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-const InputSection = ({ toDos, setToDos }) => {
+const InputSection = ({ setToDos }
+  ) => {
   const [isEmpty, setIsEmpty] = useState(false)
   const [activity, setActivity] = useState('')
 

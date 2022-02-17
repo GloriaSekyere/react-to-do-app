@@ -5,11 +5,10 @@ import ToDoList from "./ToDoList";
 const Main = () => {
   
   const [toDos, setToDos] = useState([]);
-  
+
   return (
     <main className="main">
       <InputSection 
-        toDos={toDos}
         setToDos={setToDos}
       />
 

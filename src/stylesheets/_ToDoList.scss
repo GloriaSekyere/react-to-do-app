@@ -28,3 +28,19 @@
     background-color: hsl(0, 72%, 80%);
   }
 }
+
+.loading {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: grid;
+  place-content: center;
+
+  p {
+    font-size: 25px;
+    color: white;
+  }
+}
