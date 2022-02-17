@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useFetch } from "../hooks/useFetch";
 import InputSection from "./InputSection";
 import ToDoList from "./ToDoList";
 
 const Main = () => {
-  
-  const [toDos, setToDos] = useState([]);
+  const url = "http://localhost:3000/todos"
+  const {data: toDos, setData: setToDos, isPending, error} = useFetch(url)
 
   return (
     <main className="main">
@@ -14,7 +14,7 @@ const Main = () => {
 
       <ToDoList
         toDos={toDos}
-        setToDos={setToDos}
+        setData={setToDos}
       />
     </main>
   );
