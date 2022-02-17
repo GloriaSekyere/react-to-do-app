@@ -89,7 +89,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .todos li {
@@ -104,6 +104,9 @@
 .todos button {
   -ms-flex-preferred-size: 12.5%;
       flex-basis: 12.5%;
+  padding: 5px 0;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   border: none;
   border-radius: 5px;
   display: inline-block;
