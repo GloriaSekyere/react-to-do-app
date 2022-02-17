@@ -1,0 +1,16 @@
+{
+  "todos": [
+    {
+      "todo": "Check out new restaurant", 
+      "id": 1
+    },
+    {
+      "todo": "Place order for food", 
+      "id": 2
+    },
+    {
+      "todo": "Schedule dental appointment", 
+      "id": 3
+    }
+  ]
+}

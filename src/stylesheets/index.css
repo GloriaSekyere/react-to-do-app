@@ -73,11 +73,6 @@
   background-color: #ddd;
 }
 
-.main {
-  margin: 50px auto;
-  width: 100%;
-}
-
 .todos {
   margin-top: 50px;
 }
@@ -114,6 +109,11 @@
   font-size: 30px;
   font-weight: 500;
   background-color: #f1a7a7;
+}
+
+.main {
+  margin: 50px auto;
+  width: 100%;
 }
 
 @media screen and (min-width: 768px) {

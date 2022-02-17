@@ -1,39 +1,9 @@
 @import "InputSection";
+@import "ToDoList";
 
 .main {
   margin: 50px auto;
   width: 100%;
-}
-
-.todos {
-  margin-top: 50px;
-
-  .single-todo {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-
-  li {
-    display: inline-block;
-    border-bottom: 1px solid $light-grayish-cyan;
-    padding: 10px 0;
-    flex-basis: 85%;
-    color: $very-dark-cyan;
-  }
-
-  button {
-    flex-basis: 12.5%;
-    padding: 5px 0;
-    align-self: flex-end;
-    border: none;
-    border-radius: 5px;
-    display: inline-block;
-    color: hsl(5, 67%, 45%);
-    font-size: 30px;
-    font-weight: 500;
-    background-color: hsl(0, 72%, 80%);
-  }
 }
 
 @media screen and (min-width: 768px){
